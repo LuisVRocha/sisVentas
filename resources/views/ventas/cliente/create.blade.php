@@ -14,7 +14,7 @@
 			@endif
 		</div>
 		</div>
-			{!!Form::open(array('url'=>'ventas/cliente','method'=>'POST','autocomplete'=>'off'))!!}
+      {!!Form::open(array('url'=>'ventas/cliente/create','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
 <div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

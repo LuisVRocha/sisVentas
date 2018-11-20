@@ -16,7 +16,7 @@ class ClienteController extends Controller
     {
      $this->middleware('auth');
     }
-    public function index(Request $request)
+        public function index(Request $request)
     {
         if ($request)
         {
@@ -32,8 +32,7 @@ class ClienteController extends Controller
         }
     }
     public function create()
-    {
-        
+    { 
         return view("ventas.cliente.create");
     }
     public function store (PersonaFormRequest $request)
