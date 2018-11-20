@@ -19,7 +19,7 @@ class CategoriaController extends Controller
    //PASO 10 DECLARAR UN CONSTRUCTOR PARA EL MODELO
     public function __construct() 
     {
-
+      $this->middleware('auth');
     } // AGREGAMOS LA FUNCION INDEX
     public function index(Request $request) 
     {  

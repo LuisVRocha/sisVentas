@@ -34,8 +34,8 @@ class ArticuloController extends Controller
     }
     public function create()
     {
-    $categorias=articulo::all();
-        return view('almacen.articulo.create', compact('categorias'));
+        $categorias=DB::table('categoria')->where('condicion','=','1')->get();
+        return view("almacen.articulo.create",["categorias"=>$categorias]);
     }
     public function store (ArticuloFormRequest $request)
     {

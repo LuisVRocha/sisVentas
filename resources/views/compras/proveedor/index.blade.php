@@ -17,7 +17,7 @@
 					<th>Tipo Doc.</th>
 					<th>Numero Doc.</th>
 					<th>Telefono</th>
-					<th>Email</th>					
+					<th>Email</th>			
 					<th>Opciones</th>
 				</thead>
                @foreach ($personas as $per)
@@ -29,7 +29,7 @@
 					<td>{{ $per->telefono}}</td>
 					<td>{{ $per->email}}</td>
 					<td>
-						<a href="{{URL::action('ProveedorController@edit',$per->idpersona)}}"><button class="btn btn-info">Editar</button></a>
+						<a href="{{URL::action('proveedorController@edit',$per->idpersona)}}"><button class="btn btn-info">Editar</button></a>
                          <a href="" data-target="#modal-delete-{{$per->idpersona}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 					</td>
 				</tr>
