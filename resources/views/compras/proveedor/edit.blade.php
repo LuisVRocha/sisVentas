@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row"> 
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
-			<h3>Editar Proveedor: {{ $persona->nombre}}</h3>
+			<h3>Editar Proveedor: {{$persona->nombre}}</h3>
 			@if (count($errors)>0) 
 			<div class="alert alert-danger">
 				<ul>
@@ -14,7 +14,7 @@
 			@endif
              </div>
              </div> 
-			{!!Form::model($persona,['method'=>'PATCH','route'=>['compras.proveedor.update',$persona->idpersona]])!!} 
+			{!!Form::model($persona,['method'=>'PATCH','route'=>['proveedor.update',$persona->idpersona]])!!} 
             {{Form::token()}} 
    <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -26,18 +26,19 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="form-group">
               <label for="direccion">Direccion</label>
-              <input type="text" name="nombre" value="{{$persona->direccion)}}"  class="form-control" placeholder="Direccion...">
+              <input type="text" name="direccion" value="{{$persona->direccion}}"  class="form-control" placeholder="Direccion...">
             </div>
          </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
             <label>Documento</label>
             <select name="tipo_documento" class="form-control">
-        @if (@persona->tipo_documento=='DNI')
+        @if ($persona->tipo_documento=='DNI')
         <option value="DNI" selected>DNI</option>
             <option value="DNI">DNI</option>
             <option value="RUC">RUC</option>
             <option value="PAS">PAS</option>   
-        @elseif ($persona->tipo_documento='RUC')      
+        @elseif ($persona->tipo_documento=='RUC')      
             <option value="DNI">DNI</option>
             <option value="RUC" selected>RUC</option>
             <option value="PAS">PAS</option>  
@@ -58,12 +59,12 @@
          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="telefono">Telefono</label>
-                <input type="text" name="telefono" value=" {{$persona->telefono}}"  class="form-control" placeholder="Telefono...">
+                <input type="text" name="telefono" value="{{$persona->telefono}}"  class="form-control" placeholder="Telefono...">
             </div>
           </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
-                <label for="descipcion">Email</label>
+                <label for="descripcion">Email</label>
                 <input type="text" name="email" required value="{{$persona->email}}"  class="form-control" placeholder="Email...">
             </div>
          </div>

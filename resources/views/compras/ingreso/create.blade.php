@@ -28,6 +28,7 @@
             </div>
          </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          <div class="form-group">
         	<label>Tipo Comprobante</label>
         	<select name="tipo_comprobante" class="form-control">
         		<option value="Boleta">Boleta</option>
@@ -71,13 +72,13 @@
 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
   <div class="form-group">
     <label for="precio_compra">Precio Compra</label>
-  <input type="number" name="pprecio_compra"  id="pprecio_compra"  class="form-control" placeholder="precio_compra">
+  <input type="number" name="pprecio_compra"  id="pprecio_compra"  class="form-control" placeholder="precio compra">
 </div>
 </div>
 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
   <div class="form-group">
      <label for="precio_venta">Precio Venta</label>
-  <input type="number" name="pprecio_venta"  id="pprecio_venta"  class="form-control" placeholder="precio_venta">
+  <input type="number" name="pprecio_venta"  id="pprecio_venta"  class="form-control" placeholder="precio venta">
 </div>
 </div>
 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -88,7 +89,7 @@
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
-    <thead>
+    <thead style="background-color: #A9D0F5">
         <th>Opciones</th>
         <th>Articulo</th>
         <th>Cantidad</th>
@@ -108,7 +109,6 @@
       
     </tbody>
   </table>
-
          </div>
          </div>
          </div>
@@ -124,7 +124,7 @@
 
 @push ('scripts')
 <script>
- $(document).ready(function(){
+  $(document).ready(function(){
     $('#bt_add').click(function(){
       agregar();
     });
@@ -148,8 +148,7 @@ function agregar()
     subtotal[cont]=(cantidad*precio_compra);
     total=total+subtotal[cont];
 
-    var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">x</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"</td><td><input type="number" name="precio_compra[]" value="'+precio_compra+'"</td><td><input type="number" name="[precio_venta[]" value="'+precio_venta+'"</td><td>'+subtotal[cont]+'</td></tr>';
-
+    var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">x</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_compra[]" value="'+precio_compra+'"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td><td>'+subtotal[cont]+'</td></tr>';
     cont++;
     limpiar();
     $("#total").html("Bs/. " + total);
@@ -167,7 +166,7 @@ function agregar()
     $("#pprecio_venta").val("");
   }
 
-function evaluar()
+  function evaluar()
   {
     if (total>0)
     {

@@ -67,7 +67,6 @@ class ClienteController extends Controller
         $persona->direccion=$request->get('direccion');
         $persona->telefono=$request->get('telefono');
         $persona->email=$request->get('email');
-
         $persona->update();
         return Redirect::to('ventas/cliente');
     }

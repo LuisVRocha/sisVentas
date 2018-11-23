@@ -14,8 +14,7 @@
 Route::get('/', function () {
     return view('auth/login');
 });
-//PASO 6 Rutas que tendra el sistema de ventas
-//creamos un tipo de ruta de tipo resource ,para la ruta almacen/categoria
+
 Route::resource('almacen/categoria','CategoriaController');
 Route::resource('almacen/articulo','ArticuloController');
 Route::resource('ventas/cliente','ClienteController');

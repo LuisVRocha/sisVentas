@@ -15,6 +15,7 @@ use DB;
 use Carbon\Carbon;
 use Response;
 use Illuminate\Support\Collection;
+
 class IngresoController extends Controller
 {
      public function __construct()

@@ -23,7 +23,7 @@ class IngresoFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+       return [
             'idproveedor'=>'required',
             'tipo_comprobante'=>'required|max:20',
             'serie_comprobante'=>'max:7',

@@ -42,10 +42,10 @@ class VentaController extends Controller
     }
     public function create()
     {
-     $personas=DB::table('persona')->where('tipo_persona','=','Cliente')->get();
+     $personas = DB::table('persona')->where('tipo_persona','=','Cliente')->get();
      $articulos = DB::table('articulo as art')
       ->join('detalle_ingreso as di','art.idarticulo','=','di.idarticulo')
-            ->select(DB::raw('CONCAT(art.codigo, " ",art.nombre) AS articulo'),'art.idarticulo','art.stock',DB::raw('avg(di.precio_venta) as precio_promedio'))
+            ->select(DB::raw('CONCAT(art.codigo," ",art.nombre) AS articulo'),'art.idarticulo','art.stock',DB::raw('avg(di.precio_venta) as precio_promedio'))
             ->where('art.estado','=','Activo')
             ->where('art.stock','>','0')
             ->groupBy('articulo','art.idarticulo','art.stock')
@@ -64,7 +64,7 @@ class VentaController extends Controller
          $venta->num_comprobante=$request->get('num_comprobante');
          $venta->total_venta=$request->get('total_venta');
          
-         $mytime = Carbon::now('America/Lima');
+         $mytime = Carbon::now('America/La_Paz');
          $venta->fecha_hora=$mytime->toDateTimeString();
          $venta->impuesto='18';
          $venta->estado='A';

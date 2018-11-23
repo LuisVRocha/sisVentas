@@ -3,7 +3,6 @@
 namespace sisVentas\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use sisVentas\Http\Requests;
 use sisVentas\Persona;
 use Illuminate\Support\Facades\Redirect;
@@ -61,14 +60,12 @@ class ProveedorController extends Controller
     public function update(PersonaFormRequest $request,$id)
     {
         $persona=Persona::findOrFail($id);
-
         $persona->nombre=$request->get('nombre');
         $persona->tipo_documento=$request->get('tipo_documento');
         $persona->num_documento=$request->get('num_documento');
         $persona->direccion=$request->get('direccion');
         $persona->telefono=$request->get('telefono');
         $persona->email=$request->get('email');
-
         $persona->update();
         return Redirect::to('compras/proveedor');
     }

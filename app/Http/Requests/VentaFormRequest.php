@@ -2,6 +2,8 @@
 
 namespace sisVentas\Http\Requests;
 
+use sisVentas\Http\Requests\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class VentaFormRequest extends FormRequest
